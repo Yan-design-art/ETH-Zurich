@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	double corner;
+	const double PI = 3.141592653589793;
+
+	std::cout << "Введите угол в градусах: ";
+	std::cin >> corner;
+
+	double rad = corner * (PI / 180);
+	double result_sin = std::sin(rad);
+	double result_cos = std::cos(rad);
+
+	std::cout << std::endl << "Синуса угла: " << result_sin << std::endl;
+	std::cout << "Косинус угла: " << result_cos << std::endl;
+
+	return 0;
+}

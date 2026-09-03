@@ -1,0 +1,77 @@
+#include <iostream>
+#include <random>
+#include <thread>
+#include <conio.h>
+#include "game.h"
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	short round = 1, player_account{}, AI_account{}, player, player_1, AI, AI_1;
+	char enter;
+
+	std::cout << "=========================================\n   ИГРА: ТЕКСТОВЫЙ КУБИК (ДО 3 ПОБЕД)\n=========================================";
+	while (player_account < 3 and AI_account < 3) {
+
+		std::cout << "\n\n[ РАУНД " << round << " ]\n";
+		std::cout << "Текущий счет серии -> Игрок: " << player_account << " | Компьютер: " << AI_account << std::endl;
+
+		std::cout << "\nНажмите [ENTER], чтобы бросить свои кубики...";
+		enter = _getch();
+
+		std::cout << "\n\nВы бросаете кубики...";
+		std::random_device rd;
+		std::mt19937 mt(rd());
+		std::uniform_int_distribution<int> sid(1, 6);
+
+		player = sid(mt);
+		player_1 = sid(mt);
+		AI = sid(mt);
+		AI_1 = sid(mt);
+
+		std::cout << "Результат: [" << player << "] и [" << player_1 << "]" << "(Сумма: " << player + player_1 << ")\n\n";
+		std::cout << "Компьютер бросает кубики...\n(ожидание 1.5 секунды)\n\n";
+		std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+
+		std::cout << "Результат: [" << AI << "] и [" << AI_1 << "]" << "(Сумма: " << AI + AI_1 << ")\n-----------------------------------------\n";
+
+		int player_sum = player + player_1;
+		int ai_sum = AI + AI_1;
+
+		RoundResult result = determine_round_winner(player_sum, ai_sum);
+
+		if (result == RoundResult::PlayerWins) {
+			std::cout << "\nПобеда в раунде за вами! Вы забираете очко.\n";
+			player_account++;
+			round++;
+		}
+
+		else if (result == RoundResult::AIWins) {
+			std::cout << "\nПобеда в раунде за ИИ! ИИ забирает очко.\n";
+			AI_account++;
+			round++;
+		}
+
+		else {
+			std::cout << "\nНичья! Очки в этом раунде никто не получает.\n";
+			round++;
+		}
+
+	}
+
+	if (player_account == 3) {
+		std::cout << "\n=========================================\n             ФИНАЛ ИГРЫ\n=========================================";
+		std::cout << "\nИтоговый счет серии  -> Игрок: " << player_account << " | Компьютер: " << AI_account;
+		std::cout << "\n\nПОЗДРАВЛЯЕМ! Вы одержали победу в серии матчей против ИИ!\n";
+		std::cout << "Игра завершена.";
+	}
+
+	else if (AI_account == 3) {
+		std::cout << "\n=========================================\n             ФИНАЛ ИГРЫ\n=========================================";
+		std::cout << "\nИтоговый счет серии  -> Игрок: " << player_account << " | Компьютер: " << AI_account;
+		std::cout << "\n\nУВЫ! Вы потерпели неудачу в серии матчей против ИИ!\n";
+		std::cout << "Игра завершена.";
+	}
+
+	return 0;
+}

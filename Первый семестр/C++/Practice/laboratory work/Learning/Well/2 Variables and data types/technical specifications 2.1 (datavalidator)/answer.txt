@@ -1,0 +1,38 @@
+#include <iostream>
+
+int main() {
+
+	int id, error;
+	double temp;
+	unsigned short activity;
+	short one, two, three, four;
+
+	std::cout << "ID devices: ";
+	std::cin >> id;
+	std::cout << "Core temperature: ";
+	std::cin >> temp;
+	std::cout << "Error code: ";
+	std::cin >> error;
+	std::cout << "Activity flag: ";
+	std::cin >> activity;
+
+	std::cout << "\n\n--- TELEMETRY REPORT ---\n\n";
+
+	bool activity_flag = static_cast<bool>(activity);
+	std::cout << "Device Status Active: " << std::boolalpha << activity_flag;
+
+	char error_code = static_cast<char>(error);
+	std::cout << "\nError Character Code: " << error_code;
+
+	one = id / 1000;
+	two = (id / 100) % 10;
+	three = (id / 10) % 10;
+	four = id % 10;
+	short id_sum = one + two + three + four;
+
+	int final_score = static_cast<int>(std::abs(id_sum) * temp + error);
+
+	std::cout << "\nFinal Calculated Score: " << final_score << std::endl;
+
+	return 0;
+}

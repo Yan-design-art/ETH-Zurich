@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+#include <conio.h>
+
+void codew() {
+	std::string name = "Admin";
+	std::string input;
+	bool jug = false;
+
+	for (short g = 0; g < 3; g++) {
+		std::cout << "\nКод-слово: ";
+		std::cin >> input;
+
+		if (name == input) {
+			jug = true;
+			break;
+		}
+
+		else {
+			std::cout << "\nКод-слово неверное.\nПотрачено " << (g + 1) << " попыток из 3 \n";
+		}
+
+	}
+
+	if (jug) {
+		std::cout << "Все верно. Доступ разрешен. Удачной работы";
+	}
+
+	else {
+		std::cout << "\nВы потратили все попытки. Доступ заблокирован!";
+	}
+	
+}
+
+void Entry() {
+	short a = 2566;
+	short b;
+	bool ised = false;
+
+
+
+	for (int i = 0; i < 3; i++) {
+		std::cout << "\nВведите ваш номер пожалуйста: ";
+		std::cin >> b;
+
+		if (a == b) {
+			ised = true;
+			std::cout << "\nВведите код-слово";
+			break;
+		}
+
+		else {
+			std::cout << "Номер неверный.\nПотрачено " << (i + 1) << " попыток из 3\n\n";
+		}
+	}
+
+	if (ised) {
+		codew();
+	}
+
+	else {
+		std::cout << "\nВы потратили все попытки. Доступ заблокирован!";
+	}
+
+}
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	std::cout << "Добрый день! Для продолжения нажмите Enter\n";
+
+	while (true) {
+		char ket = _getch();
+		if (ket == 13) {
+			Entry();
+
+			break;
+		}
+		else {
+			std::cout << "Нажмите Enter пожалуйста\n";
+		}
+		
+	}
+
+	return 0;
+}

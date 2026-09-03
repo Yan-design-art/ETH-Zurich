@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	double first_leg, two_leg, hypotenuse;
+
+	std::cout << "Введите первый катет: ";
+	std::cin >> first_leg;
+	std::cout << "Введите второй катет: ";
+	std::cin >> two_leg;
+
+	hypotenuse = std::sqrt(std::pow(first_leg, 2) + std::pow(two_leg, 2));
+	std::cout << "\n\nГипотенуза равна: " << hypotenuse;
+
+	return 0;
+}

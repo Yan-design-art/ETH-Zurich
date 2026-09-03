@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="../../test scripts/test scripts.vcxproj" Id="ed4e2c56-576e-4b0d-a416-e09c5a101e16" />
+  <Project Path="Well/1 Basic structure/basic structure 1/basic structure 1.vcxproj" Id="b90e1243-79fe-4929-81ba-fdff73ba19b9" />
+  <Project Path="Well/1 Basic structure/basic structure 2/basic structure 2.vcxproj" Id="69523a7b-067f-4e93-9f22-978066a0b1da" />
+  <Project Path="Well/1 Basic structure/basic structure 3/basic structure 3.vcxproj" Id="9f4e7c51-b296-4559-94fa-9368cc48432b" />
+</Solution>

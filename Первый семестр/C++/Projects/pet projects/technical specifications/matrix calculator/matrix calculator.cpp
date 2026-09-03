@@ -1,0 +1,1048 @@
+﻿#include <iostream>
+#include <windows.h>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <conio.h>
+#include <cstdlib>
+
+
+void Choice();
+void matrix();
+void matrix1();
+void det1();
+void matrix2();
+
+void returnmatrix2() {
+
+	while (true) {
+
+		system("cls");
+
+		std::cout << "[1] Продолжить\n[2] Вернуться в прошлое меню\n[3] Выйти из программы";
+		char ab = _getch();
+
+		if (ab == '1') {
+			system("cls");
+			int a[3][3]{};
+
+			for (short i = 0; i < 3; i++) {
+				for (short j = 0; j < 3; j++) {
+					std::cout << "Введите [" << i << "]" << "[" << j << "]" << " элемент матрицы: ";
+					std::cin >> a[i][j];
+				}
+			}
+
+			size_t t = 0;
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					size_t l = std::to_string(a[i][j]).length();
+					t = max(t, l);
+				}
+			}
+
+			std::cout << "\nИтоговая матрица:\n";
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a[0][0] << " ";
+			std::cout << std::setw(t) << a[0][1] << " ";
+			std::cout << std::right << std::setw(t) << a[0][2];
+			std::cout << "]\n";
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a[1][0] << " ";
+			std::cout << std::setw(t) << a[1][1] << " ";
+			std::cout << std::right << std::setw(t) << a[1][2];
+			std::cout << "]\n";
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a[2][0] << " ";
+			std::cout << std::setw(t) << a[2][1] << " ";
+			std::cout << std::right << std::setw(t) << a[2][2];
+			std::cout << "]\n";
+
+			std::cout << "\n[1] Продолжить\n[2] Изменить матрицу\n[3] Вернуться в прошлое меню\n[4] Выйти из программы\n\n";
+
+			char jk = _getch();
+
+			if (jk == '1') {
+				double b[3][3]{};
+				double det = ((a[0][0] * a[1][1] * a[2][2]) + (a[0][1] * a[1][2] * a[2][0]) + (a[0][2] * a[1][0] * a[2][1])) - ((a[0][2] * a[1][1] * a[2][0]) + (a[0][1] * a[1][0] * a[2][2]) + (a[0][0] * a[1][2] * a[2][1]));
+				b[0][0] = (a[1][1] * a[2][2]) - (a[1][2] * a[2][1]);
+				b[0][1] = -1 * ((a[1][0] * a[2][2]) - (a[1][2] * a[2][0]));
+				b[0][2] = (a[1][0] * a[2][1]) - (a[1][1] * a[2][0]);
+				b[1][0] = -1 * ((a[0][1] * a[2][2]) - (a[0][2] * a[2][1]));
+				b[1][1] = (a[0][0] * a[2][2]) - (a[0][2] * a[2][0]);
+				b[1][2] = -1 * ((a[0][0] * a[2][1]) - (a[0][1] * a[2][0]));
+				b[2][0] = (a[0][1] * a[1][2]) - (a[0][2] * a[1][1]);
+				b[2][1] = -1 * ((a[0][0] * a[1][2]) - (a[0][2] * a[1][0]));
+				b[2][2] = (a[0][0] * a[1][1]) - (a[0][1] * a[1][0]);
+
+				double c[3][3];
+
+				for (short k = 0; k < 3; k++) {
+					for (short g = 0; g < 3; g++) {
+						c[k][g] = b[g][k];
+					}
+				}
+
+				std::cout << "\n";
+				for (short o = 0; o < 3; o++) {
+					for (short l = 0; l < 3; l++) {
+						c[o][l] = (1 / det) * c[o][l];
+					}
+				}
+
+				size_t u = 0;
+
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						size_t m = std::to_string(c[i][j]).length();
+						u = max(u, m);
+					}
+				}
+
+				std::cout << "Обратная матрица:\n";
+
+				std::cout << "[";
+				std::cout << std::left << std::setw(u) << c[0][0] << " ";
+				std::cout << std::setw(u) << c[0][1] << " ";
+				std::cout << std::right << std::setw(u) << c[0][2];
+				std::cout << "]\n";
+				std::cout << "[";
+				std::cout << std::left << std::setw(u) << c[1][0] << " ";
+				std::cout << std::setw(u) << c[1][1] << " ";
+				std::cout << std::right << std::setw(u) << c[1][2];
+				std::cout << "]\n";
+				std::cout << "[";
+				std::cout << std::left << std::setw(u) << c[2][0] << " ";
+				std::cout << std::setw(u) << c[2][1] << " ";
+				std::cout << std::right << std::setw(u) << c[2][2];
+				std::cout << "]\n";
+
+				std::cout << "\n[1] Найти обратную матрицу\n[2] Вернуться в прошлое меню\n[3] Выйти из программы";
+
+				char j = _getch();
+
+				if (j == '1') {
+					continue;
+				}
+
+				else if (j == '2') {
+					return;
+				}
+
+				else if (j == '3') {
+					exit(0);
+				}
+			}
+
+			else if (jk == '2') {
+				continue;
+			}
+
+			else if (jk == '3') {
+				return;
+			}
+
+			else if (jk == '4') {
+				exit(0);
+			}
+
+		}
+
+		else if (ab == '2') {
+			return;
+		}
+
+		else if (ab == '3') {
+			exit(0);
+		}
+
+	}
+
+}
+
+void det2() {
+
+	while (true) {
+		system("cls");
+
+		int matrix[3][3];
+		for (short i = 0; i < 3; i++) {
+			for (short j = 0; j < 3; j++) {
+				while (true) {
+					std::cout << "Введите [" << i << "]" << "[" << j << "] элемент матрицы: ";
+					std::cin >> matrix[i][j];
+					if (std::cin.fail()) {
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+						std::cout << "Ошибка ввода\n\n";
+					}
+					else {
+						break;
+					}
+				}
+			}
+		}
+
+		size_t t = 0;
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				size_t l = std::to_string(matrix[i][j]).length();
+				t = max(t, l);
+			}
+		}
+
+		std::cout << "\nИтоговая матрица:\n";
+
+		std::cout << "[";
+		std::cout << std::left << std::setw(t) << matrix[0][0] << " ";
+		std::cout << std::setw(t) << matrix[0][1] << " ";
+		std::cout << std::right << std::setw(t) << matrix[0][2];
+		std::cout << "]\n";
+
+		std::cout << "[";
+		std::cout << std::left << std::setw(t) << matrix[1][0] << " ";
+		std::cout << std::setw(t) << matrix[1][1] << " ";
+		std::cout << std::right << std::setw(t) << matrix[1][2];
+		std::cout << "]\n";
+
+		std::cout << "[";
+		std::cout << std::left << std::setw(t) << matrix[2][0] << " ";
+		std::cout << std::setw(t) << matrix[2][1] << " ";
+		std::cout << std::right << std::setw(t) << matrix[2][2];
+		std::cout << "]\n";
+
+		std::cout << "\n[1] Продолжить\n[2] Изменить матрицу\n[3] Вернуться назад\n[4] Выйти из программы";
+
+		char get = _getch();
+
+		if (get == '1') {
+			std::cout << "\n\nДетерминант равен: " << ((matrix[0][0] * matrix[1][1] * matrix[2][2]) + (matrix[0][1] * matrix[1][2] * matrix[2][0]) + (matrix[0][2] * matrix[1][0] * matrix[2][1])) - ((matrix[0][2] * matrix[1][1] * matrix[2][0]) + (matrix[0][1] * matrix[1][0] * matrix[2][2]) + (matrix[0][0] * matrix[1][2] * matrix[2][1]));
+		}
+
+		else if (get == '2') {
+			system("cls");
+			continue;
+		}
+
+		else if (get == '3') {
+			return;
+		}
+
+		else if (get == '4') {
+			exit(0);
+		}
+
+		std::cout << "\n\n[1] Для нахождения нового детерминанта\n[2] Для возврата в прошлое меню\n[3] Для выхода из программы";
+
+		char w = _getch();
+
+		if (w == '1') {
+			system("cls");
+			continue;
+		}
+
+		else if (w == '2') {
+			return;
+		}
+
+		else if (w == '3') {
+			exit(0);
+		}
+
+	}
+
+}
+
+
+void xy2() {
+
+	int matrix[3][3]{};
+	int a_matrix[3][3]{};
+	int b_matrix[3][3]{};
+
+	while (true) {
+		system("cls");
+
+		while (true) {
+			std::cout << "Первая матрица:\n";
+			for (short i = 0; i < 3; i++) {
+				for (short j = 0; j < 3; j++) {
+					while (true) {
+						std::cout << "Введите [" << i << "]" << "[" << j << "] элемент матрицы: ";
+						std::cin >> matrix[i][j];
+						if (std::cin.fail()) {
+							std::cin.clear();
+							std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+							std::cout << "Ошибка! Попробуйте еще раз.\n\n";
+						}
+						else {
+							break;
+						}
+					}
+				}
+			}
+			size_t t = 0;
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					size_t l = std::to_string(matrix[i][j]).length();
+					t = max(t, l);
+				}
+			}
+
+			std::cout << "\nПервая матрица:\n";
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[0][0] << " ";
+			std::cout << std::setw(t) << matrix[0][1] << " ";
+			std::cout << std::right << std::setw(t) << matrix[0][2];
+			std::cout << "]\n";
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[1][0] << " ";
+			std::cout << std::setw(t) << matrix[1][1] << " ";
+			std::cout << std::right << std::setw(t) << matrix[1][2];
+			std::cout << "]\n";
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[2][0] << " ";
+			std::cout << std::setw(t) << matrix[2][1] << " ";
+			std::cout << std::right << std::setw(t) << matrix[2][2];
+			std::cout << "]\n";
+			std::cout << "\n[1] Продолжить\n[2] Изменить матрицу\n\n";
+
+			char a = _getch();
+
+			if (a == '1') {
+				break;
+			}
+
+			else if (a == '2') {
+				system("cls");
+				continue;
+			}
+
+			else {
+				system("cls");
+				std::cout << "Ошибка выбора\n\n";
+			}
+
+		}
+
+		while (true) {
+			std::cout << "Вторая матрица:\n";
+			for (short i = 0; i < 3; i++) {
+				for (short j = 0; j < 3; j++) {
+					while (true) {
+						std::cout << "Введите [" << i << "]" << "[" << j << "] элемент матрицы: ";
+						std::cin >> a_matrix[i][j];
+						if (std::cin.fail()) {
+							std::cin.clear();
+							std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+							std::cout << "Ошибка! Вы ввели буквы. Попробуйте еще раз.\n\n";
+						}
+						else {
+							break;
+						}
+					}
+				}
+			}
+			size_t t = 0;
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					size_t l = std::to_string(a_matrix[i][j]).length();
+					t = max(t, l);
+				}
+			}
+
+			std::cout << "\nВторая матрица:\n";
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a_matrix[0][0] << " ";
+			std::cout << std::setw(t) << a_matrix[0][1] << " ";
+			std::cout << std::right << std::setw(t) << a_matrix[0][2];
+			std::cout << "]\n";
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a_matrix[1][0] << " ";
+			std::cout << std::setw(t) << a_matrix[1][1] << " ";
+			std::cout << std::right << std::setw(t) << a_matrix[1][2];
+			std::cout << "]\n";
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a_matrix[2][0] << " ";
+			std::cout << std::setw(t) << a_matrix[2][1] << " ";
+			std::cout << std::right << std::setw(t) << a_matrix[2][2];
+			std::cout << "]\n";
+			std::cout << "\n[1] Продолжить\n[2] Изменить матрицу";
+
+			char a = _getch();
+
+			if (a == '1') {
+				break;
+			}
+
+			else if (a == '2') {
+				system("cls");
+				continue;
+			}
+
+			else {
+				system("cls");
+				std::cout << "Ошибка выбора\n\n";
+			}
+
+		}
+
+		while (true) {
+
+			std::cout << "\n\nИтоговые матрицы:\n";
+
+			size_t t = 0;
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					size_t l = std::to_string(matrix[i][j]).length();
+					t = max(t, l);
+				}
+			}
+
+			size_t q = 0;
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					size_t elh = std::to_string(a_matrix[i][j]).length();
+					q = max(q, elh);
+				}
+			}
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[0][0] << " ";
+			std::cout << std::setw(t) << matrix[0][1] << " ";
+			std::cout << std::right << std::setw(t) << matrix[0][2];
+			std::cout << "]" << " ";
+			std::cout << "[";
+			std::cout << std::left << std::setw(q) << a_matrix[0][0] << " ";
+			std::cout << std::setw(q) << a_matrix[0][1] << " ";
+			std::cout << std::right << std::setw(q) << a_matrix[0][2];
+			std::cout << "]" << std::endl;
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[1][0] << " ";
+			std::cout << std::setw(t) << matrix[1][1] << " ";
+			std::cout << std::right << std::setw(t) << matrix[1][2];
+			std::cout << "]" << " ";
+			std::cout << "[";
+			std::cout << std::left << std::setw(q) << a_matrix[1][0] << " ";
+			std::cout << std::setw(q) << a_matrix[1][1] << " ";
+			std::cout << std::right << std::setw(q) << a_matrix[1][2];
+			std::cout << "]" << std::endl;
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[2][0] << " ";
+			std::cout << std::setw(t) << matrix[2][1] << " ";
+			std::cout << std::right << std::setw(t) << matrix[2][2];
+			std::cout << "]" << " ";
+			std::cout << "[";
+			std::cout << std::left << std::setw(q) << a_matrix[2][0] << " ";
+			std::cout << std::setw(q) << a_matrix[2][1] << " ";
+			std::cout << std::right << std::setw(q) << a_matrix[2][2];
+			std::cout << "]" << std::endl;
+
+
+			std::cout << "\n[1] Продолжить\n[2] Изменить матрицы\n\n";
+
+			char hjkd = _getch();
+
+			if (hjkd == '1') {
+
+				b_matrix[0][0] = (matrix[0][0] * a_matrix[0][0]) + (matrix[0][1] * a_matrix[1][0]) + (matrix[0][2] * a_matrix[2][0]);
+				b_matrix[0][1] = (matrix[0][0] * a_matrix[0][1]) + (matrix[0][1] * a_matrix[1][1]) + (matrix[0][2] * a_matrix[2][1]);
+				b_matrix[0][2] = (matrix[0][0] * a_matrix[0][2]) + (matrix[0][1] * a_matrix[1][2]) + (matrix[0][2] * a_matrix[2][2]);
+
+				b_matrix[1][0] = (matrix[1][0] * a_matrix[0][0]) + (matrix[1][1] * a_matrix[1][0]) + (matrix[1][2] * a_matrix[2][0]);
+				b_matrix[1][1] = (matrix[1][0] * a_matrix[0][1]) + (matrix[1][1] * a_matrix[1][1]) + (matrix[1][2] * a_matrix[2][1]);
+				b_matrix[1][2] = (matrix[1][0] * a_matrix[0][2]) + (matrix[1][1] * a_matrix[1][2]) + (matrix[1][2] * a_matrix[2][2]);
+
+				b_matrix[2][0] = (matrix[2][0] * a_matrix[0][0]) + (matrix[2][1] * a_matrix[1][0]) + (matrix[2][2] * a_matrix[2][0]);
+				b_matrix[2][1] = (matrix[2][0] * a_matrix[0][1]) + (matrix[2][1] * a_matrix[1][1]) + (matrix[2][2] * a_matrix[2][1]);
+				b_matrix[2][2] = (matrix[2][0] * a_matrix[0][2]) + (matrix[2][1] * a_matrix[1][2]) + (matrix[2][2] * a_matrix[2][2]);
+
+
+				size_t gfd = 0;
+				for (short i = 0; i < 3; ++i) {
+					for (short j = 0; j < 3; ++j) {
+						size_t yil = std::to_string(b_matrix[i][j]).length();
+						gfd = max(gfd, yil);
+					}
+				}
+
+				std::cout << "Результат:\n";
+				std::cout << "[";
+				std::cout << std::left << std::setw(gfd) << b_matrix[0][0] << " ";
+				std::cout << std::setw(gfd) << b_matrix[0][1] << " ";
+				std::cout << std::right << std::setw(gfd) << b_matrix[0][2];
+				std::cout << "]\n";
+				std::cout << "[";
+				std::cout << std::left << std::setw(gfd) << b_matrix[1][0] << " ";
+				std::cout << std::setw(gfd) << b_matrix[1][1] << " ";
+				std::cout << std::right << std::setw(gfd) << b_matrix[1][2];
+				std::cout << "]\n";
+				std::cout << "[";
+				std::cout << std::left << std::setw(gfd) << b_matrix[2][0] << " ";
+				std::cout << std::setw(gfd) << b_matrix[2][1] << " ";
+				std::cout << std::right << std::setw(gfd) << b_matrix[2][2];
+				std::cout << "]\n";
+			}
+
+
+			else if (hjkd == '2') {
+				system("cls");
+				break;
+			}
+
+			std::cout << "\n\n[1] Перемножить новые матрицы\n[2] Вернуться в прошлое меню\n[3] Выйти из программы";
+
+			char lp = _getch();
+
+			if (lp == '1') {
+				system("cls");
+				break;
+			}
+
+			else if (lp == '2') {
+				return;
+			}
+
+			else if (lp == '3') {
+				exit(0);
+			}
+
+			else {
+				std::cout << "Выберите 1, 2 или 3";
+			}
+
+		}
+	}
+}
+
+
+void matrix2() {
+	while (true) {
+		system("cls");
+		std::cout << "[1] Умножить матрицу на матрицу\n";
+		std::cout << "[2] Найти детерминант матрицы\n";
+		std::cout << "[3] Найти обратную матрицу\n";
+		std::cout << "[4] Вернуться назад\n";
+		std::cout << "[5] Выйти из программы";
+
+		char choice = _getch();
+		if (choice == '1') {
+			xy2();
+		}
+
+		else if (choice == '2') {
+			det2();
+		}
+
+		else if (choice == '3') {
+			returnmatrix2();
+		}
+
+		else if (choice == '4') {
+			return;
+		}
+
+		else if (choice == '5') {
+			exit(0);
+		}
+	}
+
+}
+
+void returnmatrix1() {
+
+	while (true) {
+
+		system("cls");
+
+		double a_matrix[2][2];
+		double b_matrix[2][2];
+		double deter;
+
+		for (short i = 0; i < 2; ++i) {
+			for (short j = 0; j < 2; ++j) {
+				while (true) {
+					std::cout << "Введите элемент [" << i << "]" << "[" << j << "] матрицы: ";
+					std::cin >> a_matrix[i][j];
+					if (std::cin.fail()) {
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+						std::cout << "Ошибка ввода\n\n";
+					}
+					else {
+						break;
+					}
+				}
+			}
+		}
+
+		size_t a = 0;
+		for (short i = 0; i < 2; ++i) {
+			for (short j = 0; j < 2; ++j) {
+				size_t el = std::to_string(a_matrix[i][j]).length();
+				a = max(el, a);
+			}
+		}
+
+		std::cout << "Итоговая матрица:\n";
+
+		std::cout << "[" << std::left << std::setw(a) << a_matrix[0][0] << " ";
+		std::cout << std::right << std::setw(a) << a_matrix[0][1] << "]" << "\n";
+		std::cout << "[" << std::left << std::setw(a) << a_matrix[1][0] << " ";
+		std::cout << std::right << std::setw(a) << a_matrix[1][1] << "]\n";
+
+		deter = (a_matrix[0][0] * a_matrix[1][1]) - (a_matrix[1][0] * a_matrix[0][1]);
+
+		std::cout << "\n[1] Для нахождения обратной матрицы\n[2] Для изменения матрицы";
+
+		char z = _getch();
+
+		if (z == '1') {
+			if (deter == 0) {
+				std::cout << "\nДетерминант равен 0. Обратной матрицы не существует";
+			}
+
+			else {
+				b_matrix[0][0] = (1 / deter) * (a_matrix[1][1]);
+				b_matrix[0][1] = (1 / deter) * (-a_matrix[0][1]);
+				b_matrix[1][0] = (1 / deter) * (-a_matrix[1][0]);
+				b_matrix[1][1] = (1 / deter) * (a_matrix[0][0]);
+			}
+		}
+
+		size_t t = 0;
+		for (short i = 0; i < 2; ++i) {
+			for (short j = 0; j < 2; ++j) {
+				size_t l = std::to_string(b_matrix[i][j]).length();
+				t = max(t, l);
+			}
+		}
+
+		std::cout << "\n\nОбратная матрица:\n";
+		std::cout << "[";
+		std::cout << std::left << std::setw(t) << b_matrix[0][0] << " ";
+		std::cout << std::right << std::setw(t) << b_matrix[0][1] << "]" << "\n";
+		std::cout << "[";
+		std::cout << std::left << std::setw(t) << b_matrix[1][0] << " ";
+		std::cout << std::right << std::setw(t) << b_matrix[1][1] << "]" << "\n";
+
+		std::cout << "\n[1] Найти новую обратную матрицу\n[2] Вернуться назад\n[3] Выйти из программы";
+
+		char kl = _getch();
+
+		if (kl == '1') {
+			break;
+		}
+
+		else if (kl == '2') {
+			return;
+		}
+
+		else if (kl == '3') {
+			exit(0);
+		}
+
+	}
+
+}
+
+void det1() {
+
+	int matrix[2][2];
+
+	while (true) {
+		system("cls");
+		for (short i = 0; i < 2; i++) {
+			for (short j = 0; j < 2; j++) {
+				while (true) {
+					std::cout << "Введите [" << i << "]" << "[" << j << "] элемент матрицы: ";
+					std::cin >> matrix[i][j];
+					if (std::cin.fail()) {
+						std::cin.clear();
+						std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+						std::cout << "Ошибка ввода\n\n";
+					}
+					else {
+						break;
+					}
+				}
+			}
+		}
+
+		size_t t = 0;
+
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				size_t l = std::to_string(matrix[i][j]).length();
+				t = max(t, l);
+			}
+		}
+
+		std::cout << "Итоговая матрица: \n\n";
+
+		std::cout << "[";
+		std::cout << std::left << std::setw(t) << matrix[0][0] << " ";
+		std::cout << std::right << std::setw(t) << matrix[0][1];
+		std::cout << "]\n";
+
+		std::cout << "[";
+		std::cout << std::left << std::setw(t) << matrix[1][0] << " ";
+		std::cout << std::right << std::setw(t) << matrix[1][1];
+
+		std::cout << "]\n\n";
+
+		std::cout << "[1] Найти детерминант\n[2] Изменить матрицу";
+		char qw = _getch();
+
+		if (qw == '1') {
+			std::cout << "\n\nДетерминант равен: " << (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]);
+		}
+
+		else if (qw == '2') {
+			system("cls");
+			continue;
+		}
+
+		std::cout << "\n\n[1] Для нахождения нового детерминанта\n[2] Для возврата в прошлое меню\n[3] Для выхода из программы";
+
+		char w = _getch();
+
+		if (w == '1') {
+			system("cls");
+			continue;
+		}
+
+		else if (w == '2') {
+			return;
+		}
+
+		else if (w == '3') {
+			exit(0);
+		}
+	}
+}
+
+void xy1() {
+	while (true) {
+		system("cls");
+
+		int matrix[2][2];
+		int a_matrix[2][2];
+		int c_matrix[2][2] = { 0 };
+
+		while (true) {
+			std::cout << "Первая матрица:\n";
+			for (short i = 0; i < 2; i++) {
+				for (short j = 0; j < 2; j++) {
+					while (true) {
+						std::cout << "Введите [" << i << "]" << "[" << j << "] элемент матрицы: ";
+						std::cin >> matrix[i][j];
+						if (std::cin.fail()) {
+							std::cin.clear();
+							std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+							std::cout << "Ошибка! Попробуйте еще раз.\n\n";
+						}
+						else {
+							break;
+						}
+					}
+				}
+			}
+			size_t t = 0;
+
+			for (int i = 0; i < 2; i++) {
+				for (int j = 0; j < 2; j++) {
+					size_t l = std::to_string(matrix[i][j]).length();
+					t = max(t, l);
+				}
+			}
+
+			std::cout << "\nПервая матрица:\n";
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[0][0] << " ";
+			std::cout << std::right << std::setw(t) << matrix[0][1];
+			std::cout << "]\n";
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[1][0] << " ";
+			std::cout << std::right << std::setw(t) << matrix[1][1];
+
+			std::cout << "]\n\n";
+
+			std::cout << "[1] Продолжить\n[2] Изменить матрицу\n\n";
+
+			char a = _getch();
+
+			if (a == '1') {
+				break;
+			}
+
+			else if (a == '2') {
+				system("cls");
+				continue;
+			}
+
+		}
+
+
+		while (true) {
+			std::cout << "Вторая матрица:\n";
+			for (short i = 0; i < 2; i++) {
+				for (short j = 0; j < 2; j++) {
+					while (true) {
+						std::cout << "Введите [" << i << "]" << "[" << j << "] элемент матрицы: ";
+						std::cin >> a_matrix[i][j];
+						if (std::cin.fail()) {
+							std::cin.clear();
+							std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+							std::cout << "Ошибка! Вы ввели буквы. Попробуйте еще раз.\n\n";
+						}
+						else {
+							break;
+						}
+					}
+				}
+			}
+			size_t t = 0;
+
+			for (int i = 0; i < 2; i++) {
+				for (int j = 0; j < 2; j++) {
+					size_t l = std::to_string(a_matrix[i][j]).length();
+					t = max(t, l);
+				}
+			}
+
+			std::cout << "\nВторая матрица:\n";
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a_matrix[0][0] << " ";
+			std::cout << std::right << std::setw(t) << a_matrix[0][1];
+			std::cout << "]\n";
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << a_matrix[1][0] << " ";
+			std::cout << std::right << std::setw(t) << a_matrix[1][1];
+
+			std::cout << "]\n\n";
+
+			std::cout << "[1] Продолжить\n[2] Изменить матрицу";
+
+			char a = _getch();
+
+			if (a == '1') {
+				break;
+			}
+
+			else if (a == '2') {
+				system("cls");
+				continue;
+			}
+
+		}
+
+		while (true) {
+
+			std::cout << "\n\nИтоговые матрицы:\n";
+
+			size_t t = 0;
+
+			for (int i = 0; i < 2; i++) {
+				for (int j = 0; j < 2; j++) {
+					size_t l = std::to_string(matrix[i][j]).length();
+					t = max(t, l);
+				}
+			}
+
+			size_t q = 0;
+
+			for (int i = 0; i < 2; i++) {
+				for (int j = 0; j < 2; j++) {
+					size_t elh = std::to_string(a_matrix[i][j]).length();
+					q = max(q, elh);
+				}
+			}
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[0][0] << " ";
+			std::cout << std::right << std::setw(t) << matrix[0][1];
+			std::cout << "] ";
+
+			std::cout << " [";
+			std::cout << std::left << std::setw(q) << a_matrix[0][0] << " ";
+			std::cout << std::right << std::setw(q) << a_matrix[0][1];
+			std::cout << "]\n";
+
+			std::cout << "[";
+			std::cout << std::left << std::setw(t) << matrix[1][0] << " ";
+			std::cout << std::right << std::setw(t) << matrix[1][1];
+			std::cout << "] ";
+
+			std::cout << " [";
+			std::cout << std::left << std::setw(q) << a_matrix[1][0] << " ";
+			std::cout << std::right << std::setw(q) << a_matrix[1][1];
+			std::cout << "]\n\n";
+
+			std::cout << "[1] Продолжить\n[2] Изменить матрицы";
+
+			for (short i = 0; i < 2; ++i) {
+				for (short j = 0; j < 2; ++j) {
+					for (short k = 0; k < 2; ++k) {
+						c_matrix[i][j] += matrix[i][k] * a_matrix[k][j];
+					}
+				}
+			}
+
+			char gf = _getch();
+
+			std::cout << "\n\nРезультат:\n";
+			if (gf == '1') {
+				size_t r = 0;
+				for (short i = 0; i < 2; ++i) {
+					for (short j = 0; j < 2; ++j) {
+						size_t yjl = std::to_string(c_matrix[i][j]).length();
+						r = max(r, yjl);
+					}
+				}
+
+				std::cout << "[";
+				std::cout << std::left << std::setw(r) << c_matrix[0][0] << " ";
+				std::cout << std::right << std::setw(r) << c_matrix[0][1];
+				std::cout << "]\n";
+				std::cout << "[";
+				std::cout << std::left << std::setw(r) << c_matrix[1][0] << " ";
+				std::cout << std::right << std::setw(r) << c_matrix[1][1];
+				std::cout << "]";
+				break;
+			}
+
+			else if (gf == '2') {
+				system("cls");
+				break;
+			}
+
+		}
+
+		while (true) {
+
+			std::cout << "\n\n[1] Перемножить новые матрицы\n[2] Для возрата в прошлое меню\n[3] Выйти из программы";
+			char op = _getch();
+
+			if (op == '1') {
+				system("cls");
+				break;
+			}
+
+			else if (op == '2') {
+				return;
+				break;
+			}
+
+			else if (op == '3') {
+				exit(0);
+			}
+		}
+
+	}
+
+}
+
+void matrix1() {
+
+	while (true) {
+		system("cls");
+
+		std::cout << "[1] Умножить матрицу на матрицу\n";
+		std::cout << "[2] Найти детерминант матрицы\n";
+		std::cout << "[3] Найти обратную матрицу\n";
+		std::cout << "[4] Вернуться назад\n";
+		std::cout << "[5] Выйти из программы";
+
+		char choice = _getch();
+		if (choice == '1') {
+			xy1();
+		}
+
+		else if (choice == '2') {
+			det1();
+		}
+
+		else if (choice == '3') {
+			returnmatrix1();
+		}
+
+		else if (choice == '4') {
+			return;
+			break;
+		}
+
+		else if (choice == '5') {
+			exit(0);
+		}
+	}
+}
+void matrix() {
+	while (true) {
+		system("cls");
+		std::cout << "[1] 2x2\n";
+		std::cout << "[2] 3x3\n";
+		std::cout << "[3] Вернуться в прошлое меню\n";
+		std::cout << "[4] Выйти из программы";
+		char choice = _getch();
+		if (choice == '1') {
+			matrix1();
+		}
+		else if (choice == '2') {
+			matrix2();
+		}
+		else if (choice == '3') {
+			return;
+			break;
+		}
+		else if (choice == '4') {
+			exit(0);
+		}
+	}
+}
+void Choice() {
+	while (true) {
+		system("cls");
+		std::cout << "[1] Работа с матрицами\n[2] Вернуться назад\n[3] Выйти из программы";
+		char choice = _getch();
+		if (choice == '1') {
+			matrix();
+		}
+		else if (choice == '2') {
+			return;
+			break;
+		}
+		else if (choice == '3') {
+			exit(0);
+		}
+	}
+}
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	while (true) {
+		system("cls");
+		std::cout << "Консольный движок линейной алгебры\n\n";
+		std::cout << "[1] Продолжить\n[2] Выйти из программы";
+		char Enteroresc = _getch();
+		if (Enteroresc == '1') {
+			Choice();
+		}
+		else if (Enteroresc == '2') {
+			break;
+		}
+	}
+	return 0;
+}

@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	double a, b, c, D, x_one, x_two;
+
+	std::cout << "Введите через enter коэффиценты квадратного уравнения\n\n";
+	std::cout << "Первый: ";
+	std::cin >> a;
+	std::cout << "Второй: ";
+	std::cin >> b;
+	std::cout << "Третий: ";
+	std::cin >> c;
+
+	D = (b * b) - (4 * a * c);
+
+	x_one = (-b - std::sqrt(D)) / (2 * a);
+	x_two = (-b + std::sqrt(D)) / (2 * a);
+
+	std::cout << "\n\nx1 = " << x_one << ", x2 = " << x_two;
+
+	return 0;
+}
+
+вот исправленное 8

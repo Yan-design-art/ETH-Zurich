@@ -1,0 +1,73 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	while (true) {
+		double weight, height, bmi;
+
+		std::cout << "=== КАЛЬКУЛЯТОР ИМТ ===\n\n";
+
+		while (true) {
+			std::cout << "Введите вес (кг): ";
+			std::cin >> weight;
+
+			if (weight < 0) {
+				std::cout << "Ошибка. вес не может быть нулевым или отрицательным";
+			}
+
+			else {
+				break;
+			}
+		}
+
+		while (true) {
+			std::cout << "Введите ваш рост (в метрах, например 1.75): ";
+			std::cin >> height;
+
+			if (height < 0) {
+				std::cout << "Ошибка. рост не может быть нулевым или отрицательным";
+			}
+
+			else {
+				break;
+			}
+		}
+
+		bmi = weight / (height * height);
+
+		if (bmi < 18.5 && bmi > 7.5) {
+			std::cout << "\n\nВаш ИМТ: ";
+			std::cout.precision(2);
+			std::cout << std::fixed << bmi;
+			std::cout << " Вердикт: Дефицит массы тела.\n\n";
+		}
+
+		else if (bmi >= 18.5 && bmi <= 24.9) {
+			std::cout << "\n\nВаш ИМТ: ";
+			std::cout.precision(2);
+			std::cout << std::fixed << bmi;
+			std::cout << " Вердикт: Нормальный вес.\n\n";
+		}
+
+		else if (bmi >= 25.0 && bmi <= 29.9) {
+			std::cout << "\n\nВаш ИМТ: ";
+			std::cout.precision(2);
+			std::cout << std::fixed << bmi;
+			std::cout << " Вердикт: Избыточный вес.\n\n";
+		}
+
+		else if (bmi > 30) {
+			std::cout << "\n\nВаш ИМТ: ";
+			std::cout.precision(2);
+			std::cout << std::fixed << bmi;
+			std::cout << " Вердикт: Ожирение.\n\n";
+		}
+
+		else if (bmi <= 7.5) {
+			std::cout << "\nИМТ слишком маленький. Проверьте вами введенные данные. Возможно вы неправильно указали рост требуется в метрах (например, 1.75)\n\n";
+		}
+	}
+
+	return 0;
+}

@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	int code = 1000; // Появилась буква и
+	int codetwo = 65;
+
+	char edoc = static_cast<char>(code);
+	char edoctwo = static_cast<char>(codetwo);
+
+	std::cout << edoc << std::endl;
+	std::cout << edoctwo << std::endl;
+
+	return 0;
+}

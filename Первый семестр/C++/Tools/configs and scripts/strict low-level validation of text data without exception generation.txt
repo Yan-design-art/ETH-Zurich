@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <charconv> // Для std::from_chars
+
+int main() {
+    setlocale(LC_ALL, "RU");
+
+    const int ROWS = 2;
+    const int COLS = 2;
+    std::string matrix[ROWS][COLS];
+
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            while (true) {
+                std::cout << "Введите элемент [" << i << "][" << j << "]: ";
+                std::cin >> matrix[i][j];
+
+                // Проверяем, можно ли строку конвертировать в число
+                int dummy; // Временная переменная для результата
+                auto [ptr, ec] = std::from_chars(matrix[i][j].data(),
+                    matrix[i][j].data() + matrix[i][j].size(),
+                    dummy);
+
+                // ec == std::errc{} означает, что вся строка успешно превратилась в число
+                // ptr == matrix[i][j].data() + matrix[i][j].size() гарантирует, что в строке нет лишних букв (например, "42abc")
+                if (ec == std::errc{} && ptr == matrix[i][j].data() + matrix[i][j].size()) {
+                    break; // Ввод верный, выходим из цикла while
+                }
+
+                std::cout << "Ошибка! Это не число. Попробуйте еще раз.\n";
+            }
+        }
+    }
+
+    // Вывод проверенной матрицы
+    std::cout << "\nВаша матрица:\n";
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            std::cout << matrix[i][j] << "\t";
+        }
+        std::cout << "\n";
+    }
+
+    return 0;
+}

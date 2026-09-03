@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+
+	int number;
+	char letter;
+
+	std::cin >> number;
+	std::cin >> letter;
+
+	std::cout << "Letter: " << letter;
+	std::cout << ", Age: " << number;
+
+	return 0;
+}

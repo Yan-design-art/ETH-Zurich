@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath> // Надо подключить библиотеку
+
+int main() {
+    double x = 16;
+    double result = sqrt(x); // Требуется заменить данных на double, так как sqrt возвращает только значение точки с запятой
+
+    double dynamic = pow(2, 3); // Требовалась точка с запятой
+
+	const double PI = 3.141592653589793;
+	double angle = 30;
+
+	double radians = angle * (PI / 180.0);
+
+	double s = std::sin(radians); // Требовалось перевести градусы в радианы
+
+    return 0;
+}

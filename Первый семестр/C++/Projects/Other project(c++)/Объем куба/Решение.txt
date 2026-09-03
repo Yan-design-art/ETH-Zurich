@@ -1,0 +1,66 @@
+#include <iostream>
+#include <limits>
+#include <cmath>
+#include <conio.h>
+
+void displayArea(double abc) {
+	std::cout << "Объем куба равен: " << abc;
+}
+
+double getCubeVolume() {
+
+	double a;
+	short c = 3;
+
+	std::cout << "Введите сторону куба в метрах: ";
+
+	while (true) {
+		std::cin >> a;
+		if (std::cin.fail()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Ошибка! Вы ввели не число.\n" << "Введите число пожалуйста: ";
+		}
+
+		else if (a < 0) {
+			std::cout << "Объем не может быть отрицательным\nВведите положительное число: ";
+		}
+
+		else {
+			break;
+		}
+	}
+
+	double result = pow(a, c);
+
+	return result;
+}
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	std::cout << "Приветствую вас в калькуляторе объема куба!\n";
+	std::cout << "Для продолжения нажмите Enter\n";
+
+	while (true) {
+		if (_kbhit()) {
+
+			char key = _getch();
+
+			if (key == 13) {
+				
+				double calculatedArea = getCubeVolume();
+				displayArea(calculatedArea);
+				break;
+
+			}
+			
+			else {
+				std::cout << "Ошибка. нажмите Enter для продолжения\n";
+			}
+
+		}
+
+	}
+	return 0;
+}

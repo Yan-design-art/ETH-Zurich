@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{62F19128-6021-4C75-9F09-9DF5A0E0AF93}|..\\test scripts3\\test scripts3.vcxproj|C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts3\\test scripts3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3450E799-CA06-4D59-BA7E-4DF736ABB8C8}|..\\test scripts2\\test scripts2.vcxproj|C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts2\\test scripts2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03A63E53-3FAC-4D00-ADC6-B5F9340E5FA6}|..\\test scripts5\\test scripts5.vcxproj|C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts5\\test scripts5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95D71270-0AE9-42E0-9D4B-26B3BFC32FAE}|..\\test scripts4\\test scripts4.vcxproj|C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts4\\test scripts4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2B58A58-DCCA-4AF1-B9C1-489CA6978C08}|test scripts.vcxproj|C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts\\test scripts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F2B58A58-DCCA-4AF1-B9C1-489CA6978C08}|test scripts.vcxproj|solutionrelative:test scripts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "test scripts.cpp",
+              "DocumentMoniker": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts\\test scripts.cpp",
+              "RelativeDocumentMoniker": "test scripts.cpp",
+              "ToolTip": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts\\test scripts.cpp",
+              "RelativeToolTip": "test scripts.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-11T02:10:04.657Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "test scripts2.cpp",
+              "DocumentMoniker": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts2\\test scripts2.cpp",
+              "RelativeDocumentMoniker": "..\\test scripts2\\test scripts2.cpp",
+              "ToolTip": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts2\\test scripts2.cpp",
+              "RelativeToolTip": "..\\test scripts2\\test scripts2.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-24T15:17:22.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "test scripts3.cpp",
+              "DocumentMoniker": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts3\\test scripts3.cpp",
+              "RelativeDocumentMoniker": "..\\test scripts3\\test scripts3.cpp",
+              "ToolTip": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts3\\test scripts3.cpp",
+              "RelativeToolTip": "..\\test scripts3\\test scripts3.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-24T15:17:29.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "test scripts4.cpp",
+              "DocumentMoniker": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts4\\test scripts4.cpp",
+              "RelativeDocumentMoniker": "..\\test scripts4\\test scripts4.cpp",
+              "ToolTip": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts4\\test scripts4.cpp",
+              "RelativeToolTip": "..\\test scripts4\\test scripts4.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-24T15:17:33.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "test scripts5.cpp",
+              "DocumentMoniker": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts5\\test scripts5.cpp",
+              "RelativeDocumentMoniker": "..\\test scripts5\\test scripts5.cpp",
+              "ToolTip": "C:\\Users\\ansol\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\ETH Zurich\\\u041F\u0435\u0440\u0432\u044B\u0439 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\C\u002B\u002B\\Projects\\test scripts5\\test scripts5.cpp",
+              "RelativeToolTip": "..\\test scripts5\\test scripts5.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-24T15:17:38.368Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+﻿  test scripts.cpp
+C:\Users\ansol\OneDrive\Рабочий стол\ETH Zurich\Первый семестр\C++\Projects\test scripts\test scripts.cpp(8,13): warning C4101: size_mat: неиспользованная локальная переменная
+  test scripts.vcxproj -> C:\Users\ansol\OneDrive\Рабочий стол\ETH Zurich\Первый семестр\C++\Projects\test scripts\x64\Debug\test scripts.exe

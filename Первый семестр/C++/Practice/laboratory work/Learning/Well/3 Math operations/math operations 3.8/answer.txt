@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	double coefficients[3], D, x_one, x_two;
+
+	std::cout << "Введите через enter коэффиценты квадратного уравнения\n\n";
+	std::cout << "Первый: ";
+	std::cin >> coefficients[0];
+	std::cout << "Второй: ";
+	std::cin >> coefficients[1];
+	std::cout << "Третий: ";
+	std::cin >> coefficients[2];
+
+	D = (coefficients[1] * coefficients[1]) - (4 * coefficients[0] * coefficients[2]);
+	
+	x_one =  (-coefficients[1] - std::sqrt(D)) / 2 * coefficients[0];
+	x_two = (-coefficients[1] + std::sqrt(D)) / 2 * coefficients[0];
+
+	std::cout << "\n\nx1 = " << x_one << ", x2 = " << x_two;
+
+	return 0;
+}

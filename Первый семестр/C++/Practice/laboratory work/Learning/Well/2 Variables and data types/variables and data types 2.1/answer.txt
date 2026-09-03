@@ -1,0 +1,11 @@
+#include <iostream>
+
+int main() {
+	int whole = 42;
+	double irrationally = 3.14;
+	char letter = 'Z';
+
+	std::cout << whole << std::endl << irrationally << std::endl << letter;
+
+	return 0;
+}

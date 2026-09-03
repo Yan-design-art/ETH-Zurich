@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	const double PI = 3.14159;
+	double radius = 5.5;
+
+	double area = PI * (radius * radius);
+
+	std::cout << "Площадь: " << area;
+
+	return 0;
+}

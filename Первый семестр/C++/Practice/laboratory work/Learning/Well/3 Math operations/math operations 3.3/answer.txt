@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	double num_one, num_two;
+
+	std::cout << "Введите первое число: ";
+	std::cin >> num_one;
+	std::cout << "Введите второе число: ";
+	std::cin >> num_two;
+
+	num_one = std::abs(num_one);
+	num_two = std::abs(num_two);
+
+	std::cout << "\nMax: " << std::fmax(num_one, num_two) << ", ";
+	std::cout << "Min: " << std::fmin(num_one, num_two);
+
+	return 0;
+}

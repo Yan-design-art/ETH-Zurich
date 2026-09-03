@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	double side;
+	const int number_of_sides = 6;
+
+	std::cout << "Введите сторону шестиугольника: ";
+	std::cin >> side;
+
+	std::cout << "\nПериметр шестиугольника равен: " << side * number_of_sides;
+
+	return 0;
+}

@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+void russian() {
+  while (true) {
+    double a, b, c;
+    char voi;
+
+    cout << "Введите 2 числа:\n";
+    cout << "Первое: ";
+    cin >> a;
+    cout << "Второе: ";
+    cin >> b;
+    cout << "Действие: ";
+    cin >> voi;
+
+    if (voi == '+') {
+      c = a + b;
+      cout << "Результат: " << c << "\n\n";
+    } else if (voi == '-') {
+      c = a - b;
+      cout << "Результат: " << c << "\n\n";
+    } else if (voi == '*') {
+      c = a * b;
+      cout << "Результат: " << c << "\n\n";
+    } else if (voi == '/') {
+      if (b == 0) {
+        cout << "Ошибка. На 0 делить нельзя\n\n";
+        continue;
+      }
+      c = a / b;
+      cout << "Результат: " << c << "\n\n";
+    } else {
+      cout << "Ошибка. Неизвестный оператор\n\n";
+    }
+  }
+}
+
+int main() {
+  russian();
+  return 0;
+}

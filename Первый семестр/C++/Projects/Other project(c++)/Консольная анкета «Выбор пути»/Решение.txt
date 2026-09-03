@@ -1,0 +1,134 @@
+#include <iostream>
+#include <random>
+#include <iomanip>
+#include <string>
+
+#if defined (_WIN32) || defined (_WIN64)
+#include <conio.h>
+#else
+#include <unistd.h>
+#include <termios.h>
+
+namespace {
+char get_posix() noexcept {
+    char buf = 0;
+    struct termios old = {};
+    if (tcgetattr(STDIN_FILENO, &old) < 0) return 0;
+    struct termios raw = old;
+    raw.c_lflag &= ~(ICANON | ECHO);
+    raw.c_cc[VMIN] = 1;
+    raw.c_cc[VTIME] = 0;
+    if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) < 0) return 0;
+    if (read(STDIN_FILENO, &buf, 1) < 0) buf = 0;
+    if (tcsetattr(STDIN_FILENO, TCSADRAIN, &old) < 0) return 0;
+    return buf;
+}
+}
+#endif
+
+[[nodiscard]] char getkeypress() noexcept {
+#if defined (_WIN32) || defined (_WIN64)
+    return static_cast<char>(_getch());
+#else
+    return get_posix();
+#endif
+}
+
+
+constexpr char ESC_KEY = 27;
+
+void showCharacter() {
+	
+	while (true) {
+		std::string str;
+
+		std::cout << "\033[2J\033[1;1H";
+
+		std::random_device nnn;
+		std::mt19937 y(nnn());
+
+		std::uniform_int_distribution<> dis(1, 3);
+
+		static short io = dis(y);
+
+		if (io == 1) {
+			str = "Deide";
+		}
+
+		else if (io == 2) {
+			str = "ghj";
+		}
+
+		else if (io == 3) {
+			str = "nvbjkf";
+		}
+
+		std::cout << "Имя персонажа: " << str << std::endl << std::endl;
+
+		std::cout << "Нажмите [Esc] для возврата в меню";
+
+		char kiss = getketpress();
+
+		if (kiss == ESC_KEY) {
+			return;
+		}
+
+	}
+
+}
+
+void showBalance() {
+
+	while (true) {
+		std::cout << "\033[2J\033[1;1H";
+
+		const std::string yellow = "\033[33;1m";
+		const std::string r = "\033[0m";
+
+		std::random_device a;
+		std::mt19937 rd(a());
+
+		std::uniform_real_distribution<double> dis(1, 1000);
+
+		static double b = dis(rd);
+
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << "Ваш баланс: " << yellow << b << r << std::endl << std::endl;
+
+		std::cout << "Нажмите [Esc] для возврата в меню";
+
+		char kiss = getketpress();
+
+		if (kiss == ESC_KEY) {
+			return;
+		}
+	}
+
+}
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	while (true) {
+		std::cout << "\033[2J\033[1;1H";
+		std::cout << "Привет!\n\n";
+		std::cout << "Нажмите 1 — Посмотреть баланс игрока\n" << "Нажмите 2 — Посмотреть имя персонажа\n" << "Нажмите 0 — Выйти из программы";
+
+		char kiss = getketpress();
+
+		if (kiss == '1') {
+			showBalance();
+		}
+
+		else if (kiss == '2') {
+			showCharacter();
+		}
+
+		else if (kiss == '0') {
+			break;
+		}
+
+	}
+
+	return 0;
+}

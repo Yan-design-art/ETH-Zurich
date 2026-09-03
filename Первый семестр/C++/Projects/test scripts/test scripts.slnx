@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="../test scripts2/test scripts2.vcxproj" Id="3450e799-ca06-4d59-ba7e-4df736abb8c8" />
+  <Project Path="../test scripts3/test scripts3.vcxproj" Id="62f19128-6021-4c75-9f09-9df5a0e0af93" />
+  <Project Path="../test scripts4/test scripts4.vcxproj" Id="95d71270-0ae9-42e0-9d4b-26b3bfc32fae" />
+  <Project Path="../test scripts5/test scripts5.vcxproj" Id="03a63e53-3fac-4d00-adc6-b5f9340e5fa6" />
+  <Project Path="test scripts.vcxproj" Id="f2b58a58-dcca-4af1-b9c1-489ca6978c08" />
+</Solution>

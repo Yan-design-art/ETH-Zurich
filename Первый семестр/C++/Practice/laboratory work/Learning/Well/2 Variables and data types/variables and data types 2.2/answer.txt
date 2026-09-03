@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+
+	int num[2] = {15, 4};
+
+	int sum = num[0] + num[1];
+	int diff = num[0] * num[1];
+	int prod = num[0] - num[1];
+
+	std::cout << "Sum = " << sum << std::endl;
+	std::cout << "Diff = " << diff << std::endl;
+	std::cout << "Prod = " << prod << std::endl;
+
+	return 0;
+}

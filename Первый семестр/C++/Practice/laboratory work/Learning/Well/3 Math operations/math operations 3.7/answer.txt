@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	double x;
+	
+	std::cout << "Введите переменную x: ";
+	std::cin >> x;
+
+	x = std::exp(std::log(x));
+	std::cout << "\nИтог: " << x;
+
+	return 0;
+}

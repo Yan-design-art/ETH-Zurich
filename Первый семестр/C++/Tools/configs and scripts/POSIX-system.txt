@@ -1,0 +1,212 @@
+#include <iostream>
+
+#if defined(_WIN32) || defined(_WIN64)
+#include <conio.h> // Для Windows (_getch)
+#else
+#include <unistd.h> // Для POSIX
+#include <termios.h>
+
+// Функция для считывания одного символа без Enter в Linux/macOS
+char getch_posix() {
+    char buf = 0;
+    struct termios old = { 0 };
+    if (tcgetattr(0, &old) < 0) perror("tcsetattr()");
+    old.c_lflag &= ~ICANON; // Отключаем буферизацию строки
+    old.c_lflag &= ~ECHO;   // Отключаем эхо-вывод символа
+    old.c_cc[VMIN] = 1;
+    old.c_cc[VTIME] = 0;
+    if (tcsetattr(0, TCSANOW, &old) < 0) perror("tcsetattr ~ICANON");
+    if (read(0, &buf, 1) < 0) perror("read()");
+    old.c_lflag |= ICANON;  // Возвращаем настройки обратно
+    old.c_lflag |= ECHO;
+    if (tcsetattr(0, TCSADRAIN, &old) < 0) perror("tcsetattr ICANON");
+    return buf;
+}
+#endif
+
+int main() {
+    setlocale(LC_ALL, "RU");
+
+    std::cout << "Для продолжения нажмите 1" << std::flush;
+
+    while (true) {
+        char ch;
+#if defined(_WIN32) || defined(_WIN64)
+        ch = _getch(); // Быстрое чтение на Windows
+#else
+        ch = getch_posix(); // Быстрое чтение на Linux/macOS
+#endif
+
+        if (ch == '1') {
+            break; // Мгновенный выход из цикла при нажатии "1"
+        }
+    }
+
+    std::cout << "\nПрограмма продолжает выполнение.\n";
+    return 0;
+}
+
+#include <iostream>
+
+// ============================================================================
+// БЛОК ПОЛУЧЕНИЯ КЛАВИШИ (Оставляем вверху файла, как настроили ранее)
+// ============================================================================
+#if defined(_WIN32) || defined(_WIN64)
+#include <conio.h>
+#else
+#include <unistd.h>
+#include <termios.h>
+namespace {
+    char getch_posix() noexcept {
+        char buf = 0; struct termios old {};
+        if (tcgetattr(STDIN_FILENO, &old) < 0) return 0;
+        struct termios raw = old; raw.c_lflag &= ~(ICANON | ECHO);
+        raw.c_cc[VMIN] = 1; raw.c_cc[VTIME] = 0;
+        if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) < 0) return 0;
+        if (read(STDIN_FILENO, &buf, 1) < 0) buf = 0;
+        if (tcsetattr(STDIN_FILENO, TCSADRAIN, &old) < 0) return 0;
+        return buf;
+    }
+}
+#endif
+
+[[nodiscard]] char getKeyPress() noexcept {
+#if defined(_WIN32) || defined(_WIN64)
+    return static_cast<char>(_getch());
+#else
+    return getch_posix();
+#endif
+}
+// ============================================================================
+
+
+// Ваши целевые функции (void)
+void runFeatureOne() {
+    std::cout << "\n[Запущена Функция 1] Выполняем полезную работу...\n";
+}
+
+void runFeatureTwo() {
+    std::cout << "\n[Запущена Функция 2] Выполняем другую работу...\n";
+}
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+
+    std::cout << "--- ГЛАВНОЕ МЕНЮ ---\n";
+    std::cout << "Нажмите 1 -> Перейти в Функцию 1\n";
+    std::cout << "Нажмите 2 -> Перейти в Функцию 2\n";
+    std::cout << "Выберите действие: " << std::flush;
+
+    while (true) {
+        // Мгновенно ловим символ без Enter (работает и на Mac, и на Windows)
+        char choice = getKeyPress();
+
+        switch (choice) {
+        case '1':
+            runFeatureOne(); // Переходим в первую функцию void
+            break;           // Выходим из switch после завершения runFeatureOne
+
+        case '2':
+            runFeatureTwo(); // Переходим во вторую функцию void
+            break;           // Выходим из switch после завершения runFeatureTwo
+
+        default:
+            // Этот блок сработает, если нажата любая другая кнопка (3, Q, Пробел и т.д.)
+            // Мы просто игнорируем нажатие и ждем правильную клавишу.
+            continue;
+        }
+
+        // Как только одна из функций отработала, мы ломаем цикл while, 
+        // чтобы программа не спрашивала выбор повторно.
+        break;
+    }
+
+    std::cout << "\nПрограмма успешно завершила ветвление.\n";
+    return 0;
+}
+
+
+#include <iostream>
+
+// ============================================================================
+// БЛОК ПОЛУЧЕНИЯ КЛАВИШИ (Оставляем без изменений)
+// ============================================================================
+#if defined(_WIN32) || defined(_WIN64)
+#include <conio.h>
+#else
+#include <unistd.h>
+#include <termios.h>
+namespace {
+    char getch_posix() noexcept {
+        char buf = 0; struct termios old {};
+        if (tcgetattr(STDIN_FILENO, &old) < 0) return 0;
+        struct termios raw = old; raw.c_lflag &= ~(ICANON | ECHO);
+        raw.c_cc[VMIN] = 1; raw.c_cc[VTIME] = 0;
+        if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) < 0) return 0;
+        if (read(STDIN_FILENO, &buf, 1) < 0) buf = 0;
+        if (tcsetattr(STDIN_FILENO, TCSADRAIN, &old) < 0) return 0;
+        return buf;
+    }
+}
+#endif
+
+[[nodiscard]] char getKeyPress() noexcept {
+#if defined(_WIN32) || defined(_WIN64)
+    return static_cast<char>(_getch());
+#else
+    return getch_posix();
+#endif
+}
+// ============================================================================
+
+constexpr char ESC_KEY = 27; // ASCII код клавиши Esc
+
+// Функция А (Подменю)
+void runFeatureA() {
+    while (true) {
+        // Очищаем экран (профессиональный кроссплатформенный способ)
+        std::cout << "\033[2J\033[1;1H";
+
+        std::cout << "=== ВЫ НАХОДИТЕСЬ В ФУНКЦИИ А ===\n";
+        std::cout << "Выполняется какая-то работа функции...\n\n";
+        std::cout << "Для возврата в главное меню нажмите [Esc]... " << std::flush;
+
+        char key = getKeyPress();
+
+        if (key == ESC_KEY) {
+            std::cout << "\nВозвращаемся...\n";
+            return; // Завершаем функцию А, управление автоматически вернется в main!
+        }
+
+        // Любые другие клавиши внутри Функции А просто обновят экран или могут выполнять другие действия
+    }
+}
+
+// Главное меню
+int main() {
+    setlocale(LC_ALL, "RU");
+
+    while (true) {
+        // Очищаем экран при каждом возврате в Главное меню
+        std::cout << "\033[2J\033[1;1H";
+
+        std::cout << "--- ГЛАВНОЕ МЕНЮ ---\n";
+        std::cout << "Нажмите 1 -> Перейти в Функцию А\n";
+        std::cout << "Нажмите 0 -> Выйти из программы\n";
+        std::cout << "Выберите действие: " << std::flush;
+
+        char choice = getKeyPress();
+
+        if (choice == '1') {
+            runFeatureA(); // Переходим «вперед» в функцию А. Когда там нажмут Esc, мы вернемся СЮДА
+        }
+        else if (choice == '0') {
+            std::cout << "\nПрограмма завершена. До свидания!\n";
+            break; // Ломаем главный цикл, программа закроется
+        }
+        // Любые неверные клавиши просто перезапустят цикл главного меню
+    }
+
+    return 0;
+}

@@ -1,0 +1,37 @@
+#include <iostream>
+#include <random>
+
+int main() {
+	setlocale(LC_ALL, "RU");
+
+	short playerGuess, secretNumber, attempts{};
+
+	std::random_device num;
+	std::mt19937 mt(num());
+	std::uniform_int_distribution<int> dis(1, 100); 
+	secretNumber = dis(mt);
+
+	std::cout << "=== Компьютер загадал число! Попробуй его отгадать! ===\n\n";
+
+	while (true) {
+		std::cout << "Число: ";
+		std::cin >> playerGuess;
+		attempts++;
+
+		if (secretNumber < playerGuess) {
+			std::cout << "Мое число меньше!\n\n";
+		}
+
+		else if (secretNumber > playerGuess) {
+			std::cout << "Мое число больше!\n\n";
+		}
+
+		else {
+			std::cout << "Вы угадали!\n";
+			std::cout << "Количество попыток: " << attempts;
+			break;
+		}
+	}
+
+	return 0;
+}

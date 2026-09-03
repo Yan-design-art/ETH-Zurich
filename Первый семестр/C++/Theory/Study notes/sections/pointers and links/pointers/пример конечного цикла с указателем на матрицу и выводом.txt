@@ -1,0 +1,8 @@
+for (short i = 0; i < 2; i++) {
+	for (short j = 0; j < 2; j++) {
+		const int& a = matrix[i][j];
+
+		std::cout << a << " ";
+	}
+	std::cout << "\n";
+}

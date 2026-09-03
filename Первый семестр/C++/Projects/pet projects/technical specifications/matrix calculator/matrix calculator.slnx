@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="matrix calculator.vcxproj" Id="5750bf17-a083-45ec-bcb7-ee7c0ed6c144" />
+</Solution>

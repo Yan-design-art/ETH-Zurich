@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="3" failures="0" disabled="0" errors="0" timestamp="2026-07-31T20:51:25" time="0" name="AllTests">
+  <testsuite name="DiceGameLogic" tests="2" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="PlayerShouldWin" status="run" time="0" classname="DiceGameLogic" />
+    <testcase name="ShouldBeADraw" status="run" time="0" classname="DiceGameLogic" />
+  </testsuite>
+  <testsuite name="DiceGmaLogic" tests="1" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="PlayerShouldWin" status="run" time="0" classname="DiceGmaLogic" />
+  </testsuite>
+</testsuites>

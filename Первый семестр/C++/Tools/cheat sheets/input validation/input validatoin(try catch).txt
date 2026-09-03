@@ -1,0 +1,19 @@
+int main() {
+    setlocale(LC_ALL, "RU");
+
+    while (true) {
+        std::string input;
+        std::cout << "Введите число: ";
+        std::getline(std::cin, input);
+
+        try {
+            int number = std::stoi(input); // Парсинг строки
+            std::cout << "Вы ввели: " << number << std::endl;
+        }
+        catch (const std::invalid_argument&) {
+            std::cout << "Ошибка: введено не число!" << std::endl;
+        }
+   }
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+// ИСХОДНЫЙ КОД:
+
+//#include <iostream>
+//
+//int main() {
+//	
+//	int 1number = 10; В названии переменной нельзя писать цифры
+//	double value = 5, 4; Неправильно так как в double вместо запятой нужно ставить точку
+//	char letter = "A"; Присваиваемое значение char пишется в одиночных ковычках
+//	unsigned int score = -20; Перед типом переменной указано unsigned, unsigned ислключает в переменной знак минус. Проще говоря unsigned убирает промежуток от минуса до нуля и плюсует его значения к промежутку от нуля до плюса
+//
+//
+//	return 0;
+//}
+
+// ПРАВИЛЬНЫЙ КОД:
+
+#include <iostream>
+
+int main() {
+
+	int number = 10;
+	double value = 5.4;
+	char letter = 'A';
+	unsigned int score = 20;
+
+	std::cout << number << ", " << value << ", " << letter << ", " << score;
+
+	return 0;
+}

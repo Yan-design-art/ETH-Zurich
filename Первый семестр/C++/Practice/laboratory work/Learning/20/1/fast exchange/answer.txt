@@ -1,0 +1,48 @@
+#include <iostream>
+
+void check() {
+	short a;
+	double b;
+	const short c = 90;
+
+	while (true) {
+	    std::cout << "=== КОНВЕРТЕР ВАЛЮТ ===\n";
+    	std::cout << "1. Доллары в рубли\n";
+	    std::cout << "2. Рубли в доллары\n";
+	    std::cout << "Выберите режим (1-2): ";
+
+	    std::cin >> a;
+		if (a == 1) {
+			std::cout << "Введите сумму в долларах: ";
+			std::cin >> b;
+			    if (b < 0) {
+			        std::cout << "Сумма не может быть отрицательной!\n\n";
+			        continue;
+			    }
+			    
+			std::cout << "Результат обмена: " << (b * c) << " рублей\n\n";
+		}
+
+		else if (a == 2) {
+			std::cout << "Введите сумму в рублях: ";
+			std::cin >> b;
+			if (b < 0) {
+			        std::cout << "Сумма не может быть отрицательной!\n\n";
+			        continue;
+			    }
+			std::cout << "Результат обмена: " << (b / c) << " долларов\n\n";
+		}
+
+		else {
+			std::cout << "Сообщение об ошибке: Неверный режим работы!\n\n";
+		}
+	}
+}
+
+int main() {
+	setlocale (LC_ALL, "RU");
+
+	check();
+
+	return 0;
+}
